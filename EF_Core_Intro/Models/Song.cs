@@ -15,8 +15,9 @@ namespace EF_Core_Intro
         [MaxLength(100)]    // set max length NVarChar(100)
         public string Name { get; set; }
         [Required, MaxLength(100)]
-        public string Album { get; set; }
+        public Album Album { get; set; } //Relationship type: One to Many
         [Required]
+        public int Listens { get; set; }
         public double Duration { get; set; }
 
         // Navigation Properties

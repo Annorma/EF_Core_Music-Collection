@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace EF_Core_Intro
 {
@@ -43,6 +44,13 @@ namespace EF_Core_Intro
             {
                 Console.WriteLine($"Category #{item.Name}");
             }
+
+            //Task 2:
+
+            var first = db.Songs.Include(a => a.Album).Where(a => a.Listens > db.Songs.Include(a => a.Album).Average(a => a.Listens));
+            var second = db.Albums.Include(a => a.Artist).Select(a => a.Listens).Take(3);
+            var third = db.Songs.Select(s => s.Name).Where(s => s.Contains("All Be Alright"));
+
         }
     }
 }

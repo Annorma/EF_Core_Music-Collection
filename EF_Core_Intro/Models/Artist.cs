@@ -17,7 +17,8 @@ namespace EF_Core_Intro
         [Required, MaxLength(100)]
         public string Surname { get; set; }
         [Required, MaxLength(100)]
-        public Country Country { get; set; }
+        public Country Country { get; set; } //Relationship type: Zero or One to Many
+        public Album Albums { get; set; } //Relationship type: Zero or One to Many
 
 
         // Navigation Properties
